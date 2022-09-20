@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
-# Create your views here.
+
+# Arena Home Page
+def arena_home(request):
+    return render(request, 'Arena/arena_home.html')
