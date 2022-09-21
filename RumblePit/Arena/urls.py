@@ -9,5 +9,6 @@ urlpatterns = [
     path('<int:pk>/edit/', views.arena_edit, name='arena_edit'),
     path('<int:pk>/delete/', views.arena_delete, name='arena_delete'),
     path('fight/', views.arena_fight_select, name='arena_fight_select'),
+    path('error/', views.arena_error, name='arena_error'),
     path('results/', views.arena_results, name='arena_results'),
 ]

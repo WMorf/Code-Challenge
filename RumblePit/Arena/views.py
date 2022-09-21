@@ -76,11 +76,39 @@ def arena_fight_select(request):
 
 
 def arena_results(request):
-    if request.method == 'POST':
-        pk1 = request.POST.get('fighter1')
-        pk2 = request.POST.get('fighter2')
+    # Grabs value from selected options which is then linked to respective primary keys from database
+    pk1 = request.POST.get('fighter1')
+    pk2 = request.POST.get('fighter2')
+
+    if pk1 != pk2:
         fighter1 = get_object_or_404(Gladiator, pk=pk1)
         fighter2 = get_object_or_404(Gladiator, pk=pk2)
+
+        # Random Coin-Flip determining victor, 0-1 range for estimated %50 chance
+        coinflip = random.randint(0, 1)
+        print(coinflip)
+
+        # Wins and losses are updated depending on victor and then saved, updating the records
+        if coinflip == 0:
+            fighter1.wins = fighter1.wins + 1
+            fighter2.losses = fighter2.losses - 1
+            fighter1.save()
+            fighter2.save()
+        else:
+            fighter2.wins = fighter2.wins + 1
+            fighter1.losses = fighter1.losses - 1
+            fighter2.save()
+            fighter1.save()
+
         context = {'fighter1': fighter1, 'fighter2': fighter2}
 
-    return render(request, 'Arena/arena_results.html', context)
+        return render(request, 'Arena/arena_results.html', context)
+
+    # Way to catch if 2 instances of the same fighters are selected
+    else:
+        return redirect('arena_error')
+
+
+# Arena Fight Error Page
+def arena_error(request):
+    return render(request, 'Arena/arena_error.html')
