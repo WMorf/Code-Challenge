@@ -1,0 +1,23 @@
+{% extends "food_base.html" %}
+
+{% block content %}
+
+<h1>MENU</h1>
+<table class="form-container">
+    <tr>
+        <th>Name</th>
+        <th>Cost</th>
+    </tr>
+
+    {% for e in eddibles %}
+    <tr>
+        <td><a href="../{{ e.pk }}/details/">{{e.name}}</a></td>
+        <td>{{e.cost|title}}$</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<button class="btn"><a href="{% url 'food_home' %}">Back</a></button>
+
+{% endblock %}

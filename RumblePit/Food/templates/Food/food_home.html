@@ -1,0 +1,15 @@
+{% extends "food_base.html" %}
+{% load static %}
+
+{% block content %}
+	<br>
+
+	<div class="form-container">
+		<a href="{% url 'food_create' %}"><p>Create Food</p></a>
+		<a href="{% url 'food_display' %}"><p>Food Menu</p></a>
+	</div>
+
+	<br>
+	<br>
+
+{% endblock %}

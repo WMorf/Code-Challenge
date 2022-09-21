@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('Arena/', include('Arena.urls')),
+    path('Food/', include('Food.urls')),
 ]

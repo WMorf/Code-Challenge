@@ -11,9 +11,11 @@ def arena_home(request):
 
 # Arena Create Page
 def arena_create(request):
+    #  form fields map to HTML form <input> elements for easy creation.
     form = GladiatorForm(data=request.POST or None)
 
-    # return home after creating new fighter with redirect
+    # return home after creating new fighter. Made automatic with redirect so user does not
+    # have to manually navigate away from this page
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -25,6 +27,9 @@ def arena_create(request):
 
 # Arena Display Database
 def arena_display(request):
+    # accessing the Model Manage Gladiators allows us to use a for loop on
+    # the page rather than manually assigning variables for each record in the
+    # database to be displayed. This is faster and cleaner.
     fighters = Gladiator.Gladiators.all()
     context = {'fighters': fighters}
 
@@ -47,7 +52,6 @@ def arena_edit(request, pk):
     fighter = get_object_or_404(Gladiator, pk=pk)
     form = GladiatorForm(data=request.POST or None, instance=fighter)
 
-    # return home after updating new fighter with redirect
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -68,6 +72,7 @@ def arena_delete(request, pk):
     return render(request, "Arena/arena_delete.html", context)
 
 
+# Arena Fight Page
 def arena_fight_select(request):
     fighters = Gladiator.Gladiators.all().order_by('wins')
     context = {"fighters": fighters}
@@ -75,11 +80,13 @@ def arena_fight_select(request):
     return render(request, "Arena/arena_fight_select.html", context)
 
 
+# Arena Result Page
 def arena_results(request):
     # Grabs value from selected options which is then linked to respective primary keys from database
     pk1 = request.POST.get('fighter1')
     pk2 = request.POST.get('fighter2')
 
+    # This is done to prevent the same fighter from being used and to avoid errors updating the record
     if pk1 != pk2:
         fighter1 = get_object_or_404(Gladiator, pk=pk1)
         fighter2 = get_object_or_404(Gladiator, pk=pk2)
@@ -89,6 +96,7 @@ def arena_results(request):
         print(coinflip)
 
         # Wins and losses are updated depending on victor and then saved, updating the records
+        # winner is assigned this way to display it after with a CSS fade in effect
         if coinflip == 0:
             fighter1.wins = fighter1.wins + 1
             fighter2.losses = fighter2.losses - 1
@@ -102,12 +110,10 @@ def arena_results(request):
             fighter1.save()
             winner = get_object_or_404(Gladiator, pk=pk2)
 
-        # winner is assigned this way to display it after a delay with JavaScript
         context = {'fighter1': fighter1, 'fighter2': fighter2, 'winner': winner}
 
         return render(request, 'Arena/arena_results.html', context)
 
-    # Way to catch if 2 instances of the same fighters are selected
     else:
         return redirect('arena_error')
 

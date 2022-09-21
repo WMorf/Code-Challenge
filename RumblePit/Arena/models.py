@@ -24,6 +24,7 @@ class Gladiator(models.Model):
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
 
+# model name pluralized for clarity and ease of use
     Gladiators = models.Manager()
 
 # returns name field for clarity

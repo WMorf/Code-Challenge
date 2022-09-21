@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+#
+# certain urls make use of the pk or Primary Key to access particular records from the database
 urlpatterns = [
     path('', views.arena_home, name='arena_home'),
     path('create/', views.arena_create, name='arena_create'),

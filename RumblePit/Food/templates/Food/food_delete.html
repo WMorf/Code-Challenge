@@ -1,0 +1,9 @@
+{% extends "food_base.html" %}
+
+{% block content %}
+	<h1>It Is Finished</h1>
+    <div class="form-container">
+        <p>{{ eddible.name }} has been tossed out!</p>
+        <button class="btn"><a href="{% url 'food_home' %}">Back to the Menu</a></button>
+    </div>
+{% endblock %}

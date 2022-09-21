@@ -1,0 +1,13 @@
+{% extends "food_base.html" %}
+
+{% block content %}
+	<div class="detail-container">
+			<h1>{{ eddible.name }}</h1>
+			<p>Cost - {{ eddible.cost|title }}$</p>
+	</div>
+
+	<br>
+	<button><a href="{% url 'food_display' %}" class="hover-text">Back</a></button>
+	<button><a href="../{{ form.pk }}edit/" class="hover-text">Edit this Food?</a></button>
+
+{% endblock %}
