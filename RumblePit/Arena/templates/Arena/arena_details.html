@@ -1,0 +1,13 @@
+{% extends "arena_base.html" %}
+
+{% block content %}
+	<p>Details</p>
+	<p>{{ fighter.name }}</p>
+	<p>{{ fighter.age }}</p>
+	<p>{{ fighter.colors }}</p>
+	<p>{{ fighter.equipment }}</p>
+	<p>{{ fighter.wins }}</p>
+	<p>{{ fighter.losses }}</p>
+
+	<button><a href="../{{ form.pk }}edit/" class="hover-text">Edit this Gladiator?</a></button>
+{% endblock %}

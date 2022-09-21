@@ -1,0 +1,15 @@
+{% extends "arena_base.html" %}
+
+{% block content %}
+	<p>Edit</p>
+	<div class="form-container">
+		<form method="POST" action="">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			{{ form.as_table }}
+			<button type="submit">Save Changes</button>
+		</form>
+		<button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
+		<button class="btn"><a href="{% url 'arena_home' %}">CANCEL</a></button>
+	</div>
+{% endblock %}

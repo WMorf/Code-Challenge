@@ -1,0 +1,15 @@
+{% extends "arena_base.html" %}
+
+{% block content %}
+
+    <!-- Create Fighter input fields displayed from form -->
+    <h1>A new hero approaches</h1>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+            <button type="submit">Create Fighter</button>
+        </form>
+    </div>
+{% endblock %}

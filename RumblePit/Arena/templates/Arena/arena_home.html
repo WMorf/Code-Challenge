@@ -1,14 +1,7 @@
-<!DOCTYPE html>
+{% extends "arena_base.html" %}
 
-{% load static %}
-<html lang="en">
-
-	<head>
-		<meta charset="utf-8">
-		<title>Arena Home</title>
-	</head>
-
-	<body>
-	</body>
-
-</html>
+{% block content %}
+	<p>Home</p>
+	<a href="{% url 'arena_create' %}"><p>Create Hero</p></a>
+	<a href="{% url 'arena_display' %}"><p>Hero Roster</p></a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "arena_base.html" %}
+
+{% block content %}
+
+<h1>Gladiators</h1>
+<table id="displayTable">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Colors</th>
+        <th>Equipment</th>
+        <th>Wins</th>
+        <th>Losses</th>
+    </tr>
+
+    {% for f in fighters %}
+    <tr>
+        <td><a href="../{{ f.pk }}/details/">{{f.name}}</a></td>
+        <td>{{f.age}}</td>
+        <td>{{f.colors}}</td>
+        <td>{{f.equipment}}</td>
+        <td>{{f.wins}}</td>
+        <td>{{f.losses}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

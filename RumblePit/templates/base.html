@@ -8,7 +8,12 @@
 	</head>
 
 	<body>
-		<p>It's Working!!!!</p>
+        {% block content %}
+        {% endblock %}
 	</body>
+
+    {% block footer %}
+		{% include 'footer.html' %}
+	{% endblock %}
 
 </html>
