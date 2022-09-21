@@ -16,15 +16,16 @@
     {% for f in fighters %}
     <tr>
         <td><a href="../{{ f.pk }}/details/">{{f.name}}</a></td>
-        <td>{{f.age}}</td>
-        <td>{{f.colors}}</td>
-        <td>{{f.equipment}}</td>
-        <td>{{f.wins}}</td>
-        <td>{{f.losses}}</td>
+        <td>{{f.age|title}}</td>
+        <td>{{f.colors|title}}</td>
+        <td>{{f.equipment|title}}</td>
+        <td>{{f.wins|title}}</td>
+        <td>{{f.losses|title}}</td>
     </tr>
     {% endfor %}
 </table>
 
+<br>
 <button class="btn"><a href="{% url 'arena_home' %}">Back to the Arena</a></button>
 
 {% endblock %}

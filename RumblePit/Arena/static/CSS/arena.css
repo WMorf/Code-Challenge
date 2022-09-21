@@ -11,6 +11,11 @@ h1{
     text-shadow: 2px 2px black;
 }
 
+h3{
+    color: #D9BE33;
+    text-shadow: 2px 2px black;
+}
+
 table{
     display: inline-block;
     color: white;
@@ -68,18 +73,30 @@ a:visited{
     color: white;
 }
 
-.form-container{
+/* =============== Boxes =============== */
+
+.detail-container{
+    position: center;
+    padding: 5px;
+    color: silver;
+    text-align: left;
     display: inline-block;
     border: ridge 7px grey;
     border-radius: 5px;
     background-image: linear-gradient(brown, #4D462A);
-    background-color: #43bac4;
+}
+
+.form-container{
+    position: center;
+    display: inline-block;
+    border: ridge 7px grey;
+    border-radius: 5px;
+    background-image: linear-gradient(brown, #4D462A);
     padding: 10px;
 }
+
 
 button:hover {
     border: ridge 5px white;
 
-
-/* =============== Boxes =============== */
 

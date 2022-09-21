@@ -1,13 +1,14 @@
 {% extends "arena_base.html" %}
 
 {% block content %}
-	<p>Details</p>
-	<p>{{ fighter.name }}</p>
-	<p>{{ fighter.age }}</p>
-	<p>{{ fighter.colors }}</p>
-	<p>{{ fighter.equipment }}</p>
-	<p>{{ fighter.wins }}</p>
-	<p>{{ fighter.losses }}</p>
-
+	<h1>{{ fighter.name }}</h1>
+	<div class="detail-container">
+			<p>AGE - {{ fighter.age|title }}</p>
+			<p>Team Colors - {{ fighter.colors|title }}</p>
+			<p>Equipment - {{ fighter.equipment|title }}</p>
+			<p>Wins - {{ fighter.wins|title }}</p>
+			<p>Losses - {{ fighter.losses|title }}</p>
+	</div>
 	<button><a href="../{{ form.pk }}edit/" class="hover-text">Edit this Gladiator?</a></button>
+
 {% endblock %}

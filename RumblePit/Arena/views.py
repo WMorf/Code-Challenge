@@ -65,7 +65,7 @@ def arena_delete(request, pk):
     context = {"fighter": fighter}
     fighter.delete()
 
-    return render(request, "/Arena/arena_delete.html", context)
+    return render(request, "Arena/arena_delete.html", context)
 
 
 def arena_fight_select(request):
@@ -94,13 +94,16 @@ def arena_results(request):
             fighter2.losses = fighter2.losses - 1
             fighter1.save()
             fighter2.save()
+            winner = get_object_or_404(Gladiator, pk=pk1)
         else:
             fighter2.wins = fighter2.wins + 1
             fighter1.losses = fighter1.losses - 1
             fighter2.save()
             fighter1.save()
+            winner = get_object_or_404(Gladiator, pk=pk2)
 
-        context = {'fighter1': fighter1, 'fighter2': fighter2}
+        # winner is assigned this way to display it after a delay with JavaScript
+        context = {'fighter1': fighter1, 'fighter2': fighter2, 'winner': winner}
 
         return render(request, 'Arena/arena_results.html', context)
 
