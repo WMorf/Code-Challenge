@@ -1,0 +1,85 @@
+body{
+    background-image: linear-gradient(#ADA06B, #4D462A);
+    font-family: monospace, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1{
+    color: #D9BE33;
+    text-shadow: 2px 2px black;
+}
+
+table{
+    display: inline-block;
+    color: white;
+    margin: 5px;
+    text-align: center;
+}
+
+table tr{
+
+}
+
+table th{
+    color: #D9BE33;
+    text-shadow: 2px 2px black;
+    padding: 5px;
+}
+
+table td{
+    padding: 5px;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+/* Pushes footer to bottom of the page */
+footer{
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    font-weight: 700;
+}
+
+
+/* =============== Buttons/Links =============== */
+
+button {
+    font-family: monospace, sans-serif;
+    color: silver;
+    font-size: 20px;
+    border: ridge 5px grey;
+    margin: 10px;
+    padding: 5px;
+    background-color: #68592C;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+}
+
+/* removed link color change for clarity and to avoid colors clashing*/
+a{
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+}
+
+
+a:visited{
+    color: white;
+}
+
+.form-container{
+    display: inline-block;
+    border: ridge 7px grey;
+    border-radius: 5px;
+    background-image: linear-gradient(brown, #4D462A);
+    background-color: #43bac4;
+    padding: 10px;
+}
+
+button:hover {
+    border: ridge 5px white;
+
+
+/* =============== Boxes =============== */
+
