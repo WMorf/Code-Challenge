@@ -1,10 +1,12 @@
-{% extends "arena_base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 	<h1>Welcome to Rumble Pit</h1>
-	<h3> Gladiator Management</h3>
+	<h3>Gladiator Management</h3>
 
+	<img src="{% static 'IMG/arena.jpg' %}" alt="Arena">
 	<h1><a href="{% url 'arena_home' %}">Enter the Arena</a></h1>
 
 {% endblock %}

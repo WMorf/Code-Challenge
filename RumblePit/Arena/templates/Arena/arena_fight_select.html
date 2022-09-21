@@ -1,6 +1,5 @@
 {% extends "arena_base.html" %}
-
-<!-- -->
+{% load static %}
 
 {% block content %}
     <div>
@@ -27,4 +26,7 @@
             <button type="submit">Fight</button>
         </form>
     </div>
+
+    <img src="{% static 'IMG/sword.jpg' %}" alt="Arena">
+
 {% endblock %}

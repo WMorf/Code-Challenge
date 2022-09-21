@@ -1,5 +1,5 @@
 {% extends "arena_base.html" %}
-
+{% load static %}
 
 {% block content %}
 	<div class="form-container">
@@ -7,4 +7,10 @@
 		<a href="{% url 'arena_display' %}"><p>Gladiator Roster</p></a>
 		<a href="{% url 'arena_fight_select' %}"><p>Start a Fight</p></a>
 	</div>
+
+	<br>
+	<br>
+
+	<img src="{% static 'IMG/armor.jpg' %}" alt="Armor">
+
 {% endblock %}

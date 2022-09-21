@@ -9,6 +9,9 @@
 			<p>Wins - {{ fighter.wins|title }}</p>
 			<p>Losses - {{ fighter.losses|title }}</p>
 	</div>
+
+	<br>
+	<button><a href="{% url 'arena_display' %}" class="hover-text">Back</a></button>
 	<button><a href="../{{ form.pk }}edit/" class="hover-text">Edit this Gladiator?</a></button>
 
 {% endblock %}

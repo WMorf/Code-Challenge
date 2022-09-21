@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(brown, black);
+    background-image: linear-gradient(#ADA06B, #4D462A);
     font-family: monospace, sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -52,6 +52,7 @@ img{
     height: 400px;
     border: ridge 5px grey;
 }
+
 
 /* =============== Buttons/Links =============== */
 
