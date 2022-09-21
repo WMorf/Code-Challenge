@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Gladiator
 from .forms import GladiatorForm
+import random
 
 
 # Arena Home Page
@@ -60,8 +61,26 @@ def arena_edit(request, pk):
 # Arena Delete Page
 def arena_delete(request, pk):
     pk = int(pk)
-    item = get_object_or_404(Gladiator, pk=pk)
-    context = {"item": item, }
-    item.delete()
+    fighter = get_object_or_404(Gladiator, pk=pk)
+    context = {"fighter": fighter}
+    fighter.delete()
 
-    return render(request, "Arena/arena_delete.html", context)
+    return render(request, "/Arena/arena_delete.html", context)
+
+
+def arena_fight_select(request):
+    fighters = Gladiator.Gladiators.all().order_by('wins')
+    context = {"fighters": fighters}
+
+    return render(request, "Arena/arena_fight_select.html", context)
+
+
+def arena_results(request):
+    if request.method == 'POST':
+        pk1 = request.POST.get('fighter1')
+        pk2 = request.POST.get('fighter2')
+        fighter1 = get_object_or_404(Gladiator, pk=pk1)
+        fighter2 = get_object_or_404(Gladiator, pk=pk2)
+        context = {'fighter1': fighter1, 'fighter2': fighter2}
+
+    return render(request, 'Arena/arena_results.html', context)

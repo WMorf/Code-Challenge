@@ -3,11 +3,16 @@
 
 <html lang="en">
 
+
 	<head>
 		<meta charset="utf-8">
 		<title>Arena</title>
-		<link rel="stylesheet" href="{% static 'CSS/arena.css' %}">
+		<!--<link rel="stylesheet" href="{% static 'CSS/arena.css' %}">-->
 	</head>
+
+	{% block nav %}
+		{% include 'nav.html' %}
+	{% endblock %}
 
 	<body>
 		{% block content %}

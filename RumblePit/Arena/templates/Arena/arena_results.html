@@ -1,0 +1,24 @@
+{% extends "arena_base.html" %}
+
+{% block content %}
+    <div>
+        <p>Fighter 1</p>
+        <p>{{ fighter1.name }}</p>
+        <p>{{ fighter1.age }}</p>
+        <p>{{ fighter1.colors }}</p>
+        <p>{{ fighter1.equipment }}</p>
+        <p>{{ fighter1.wins }}</p>
+        <p>{{ fighter1.losses }}</p>
+    </div>
+
+    <div>
+        <p>Fighter 2</p>
+        <p>{{ fighter2.name }}</p>
+        <p>{{ fighter2.age }}</p>
+        <p>{{ fighter2.colors }}</p>
+        <p>{{ fighter2.equipment }}</p>
+        <p>{{ fighter2.wins }}</p>
+        <p>{{ fighter2.losses }}</p>
+    </div>
+
+{% endblock %}
